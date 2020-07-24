@@ -1,12 +1,11 @@
 let userScore = 0;
 let computerScore = 0;
-const userScoreSpan = document.getElementById('user-score');
-const computerScoreSpan = document.getElementById('computer-score');
-const scoreboardDiv = document.querySelector('.scoreboard');
-const resultP = document.querySelector('.result > p');
-const rockDiv = document.getElementById('r');
-const paperDiv = document.getElementById('p');
-const scissorsDiv = document.getElementById('s');
+const userScore_span = document.getElementById('user-score');
+const computerScore_span = document.getElementById('computer-score');
+const result_p = document.querySelector('.result > p');
+const rock_div = document.getElementById('r');
+const paper_div = document.getElementById('p');
+const scissors_div = document.getElementById('s');
 
 const getComputerChoice = () => {
   const choices = ['r', 'p', 's'];
@@ -23,40 +22,40 @@ const convertToWord = (letter) => {
 const win = (userChoice, computerChoice) => {
   const smallUserWord = 'user'.fontsize(3).sub();
   const smallCompWord = 'comp'.fontsize(3).sub();
-  const userChoiceDiv = document.getElementById(userChoice);
+  const userChoice_div = document.getElementById(userChoice);
   userScore += 1;
-  computerScoreSpan.innerHTML = computerScore;
-  userScoreSpan.innerHTML = userScore;
-  resultP.innerHTML = `${convertToWord(userChoice)}${smallUserWord} beats ${convertToWord(
+  computerScore_span.innerHTML = computerScore;
+  userScore_span.innerHTML = userScore;
+  result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} beats ${convertToWord(
     computerChoice,
   )}${smallCompWord}. You win!`;
-  userChoiceDiv.classList.add('green-glow');
-  setTimeout(() => userChoiceDiv.classList.remove('green-glow'), 350);
+  userChoice_div.classList.add('green-glow');
+  setTimeout(() => userChoice_div.classList.remove('green-glow'), 350);
 };
 
 const lose = (userChoice, computerChoice) => {
   const smallUserWord = 'user'.fontsize(3).sub();
   const smallCompWord = 'comp'.fontsize(3).sub();
-  const userChoiceDiv = document.getElementById(userChoice);
+  const userChoice_div = document.getElementById(userChoice);
   computerScore += 1;
-  computerScoreSpan.innerHTML = computerScore;
-  userScoreSpan.innerHTML = userScore;
-  resultP.innerHTML = `${convertToWord(userChoice)}${smallUserWord} loses to ${convertToWord(
+  computerScore_span.innerHTML = computerScore;
+  userScore_span.innerHTML = userScore;
+  result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} loses to ${convertToWord(
     computerChoice,
   )}${smallCompWord}. You lost...`;
-  userChoiceDiv.classList.add('red-glow');
-  setTimeout(() => userChoiceDiv.classList.remove('red-glow'), 350);
+  userChoice_div.classList.add('red-glow');
+  setTimeout(() => userChoice_div.classList.remove('red-glow'), 350);
 };
 
 const draw = (userChoice, computerChoice) => {
   const smallUserWord = 'user'.fontsize(3).sub();
   const smallCompWord = 'comp'.fontsize(3).sub();
-  const userChoiceDiv = document.getElementById(userChoice);
-  resultP.innerHTML = `${convertToWord(userChoice)}${smallUserWord} equals ${convertToWord(
+  const userChoice_div = document.getElementById(userChoice);
+  result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} equals ${convertToWord(
     computerChoice,
   )}${smallCompWord}. It's a draw!`;
-  userChoiceDiv.classList.add('yellow-glow');
-  setTimeout(() => userChoiceDiv.classList.remove('yellow-glow'), 350);
+  userChoice_div.classList.add('yellow-glow');
+  setTimeout(() => userChoice_div.classList.remove('yellow-glow'), 350);
 };
 
 const game = (userChoice) => {
@@ -82,9 +81,9 @@ const game = (userChoice) => {
 };
 
 const main = () => {
-  rockDiv.addEventListener('click', () => game('r'));
-  paperDiv.addEventListener('click', () => game('p'));
-  scissorsDiv.addEventListener('click', () => game('s'));
+  rock_div.addEventListener('click', () => game('r'));
+  paper_div.addEventListener('click', () => game('p'));
+  scissors_div.addEventListener('click', () => game('s'));
 };
 
 main();

@@ -13,7 +13,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'implicit-arrow-linebreak': 'off',
-    'no-console': 'off',
+    camelcase: 'off',
+    'no-unused-vars': 'warn',
   },
 };
